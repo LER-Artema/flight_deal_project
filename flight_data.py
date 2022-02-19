@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-
+import os
 import requests
 
 
@@ -7,7 +7,7 @@ class FlightData:
     def __init__(self):
         self.tomorrow = datetime.now() + timedelta(days=1)
         self.endpoint = "https://tequila-api.kiwi.com/v2/search"
-        self.api_key = "VeTiYn5fldaphRDR7YtuR4VPF3QtwNyP"
+        self.api_key = os.environ.get('api_key')
         self.period = datetime.now() + timedelta(days=(6 * 30))
         self.list = []
 
